@@ -1,0 +1,2 @@
+source:destination
+conta.source@domínio.com:conta.dest@domínio.com
