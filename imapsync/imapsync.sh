@@ -17,7 +17,7 @@ do
         # Migra os dados via Imapsync
         /usr/bin/imapsync \
         --host1 $HOST_SOURCE --authuser1 $ADMIN_SOURCE --password1 $PWD_SOURCE --user1 $USER --authmech1 PLAIN  --tls1 \
-        --host2 $HOST_DEST --authuser2 $ADMIN_DEST --password2 $PWD_BTZ --user2 $USER2 --authmech2 PLAIN --skipsize --allowsizemismatch --noerrorsdump --idatefromheader --addheader \
+        --host2 $HOST_DEST --authuser2 $ADMIN_DEST --password2 $PWD_DEST --user2 $USER2 --authmech2 PLAIN --skipsize --allowsizemismatch --noerrorsdump --idatefromheader --addheader \
 
         echo "==== Ended imapsync from $HOST_SOURCE $USER to $HOST_DEST $USER2 ===="
         echo
