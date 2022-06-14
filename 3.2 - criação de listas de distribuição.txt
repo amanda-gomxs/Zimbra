@@ -1,0 +1,39 @@
+================ Listas de distribuição com limites =============================
+
+
+1. Público - conceder a todos os usuários direitos de envio interno/externo
+
+# zmprov grr dl distributionlist@zimbra.lab pub sendToDistList
+# zmmtactl reload
+
+
+
+2. Usuário - concede permissões ao usuário que envia permissões a uma lista de distribuição
+
+# zmprov grr dl distributionlist@zimbra.lab usr user@zimbra.lab sendToDistList
+# zmmtactl reload
+
+
+
+3. Grupo (lista de distribuição) - concede a um grupo o envio de direitos à lista de distribuição
+
+# zmprov grr dl distributionlist@zimbra.lab grp groupdl@zimbra.lab sendToDistList
+# zmmtactl reload
+
+
+
+4. Todas as Entidades - permite que todas as entidades do servidor enviem para uma lista de distribuição
+zmprov grr dl distributionlist@zimbra.lab all sendToDistList
+# zmmtactl reload
+
+
+
+5. Domínio - conceder a todos os usuários em um domínio direitos de envio
+zmprov grr dl distributionlist@zimbra.lab dom zimbra.lab sendToDistList
+# zmmtactl reload
+
+
+
+6. Público - conceder a todos os usuários direitos de envio interno/externo
+zmprov grr dl distributionlist@zimbra.lab pub sendToDistList
+# zmmtactl reload

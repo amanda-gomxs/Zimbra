@@ -1,0 +1,25 @@
+RELATÓRIO DE CONTAS EXISTENTES
+
+
+entrar no MX correspondente ao cliente.
+
+# su - zimbra
+
+# zmprov -l gaa [domínio]
+
+[zimbra@dc01bsmx06 ~]$ zmprov -l gaa [dominio] |sort
+
+
+zmprov -l gaa [dominio] |sort > /tmp/arquivo.tx
+
+
+=====================================
+number coloca os números nas colunas
+:set number
+
+remover galsync - normalmente removemos
+
+-- passar para uma planilha ou em arquivo txt
+
+
+

@@ -1,0 +1,43 @@
+ADICIONAR IP NA WHITELIST DO FAIL2BAN
+
+
+1. Olhar os logs para ver se houve o bloqueio do IP:
+# cat /var/log/fail2ban.log |grep [IP]
+
+2. Editar o arquivo jail.conf para modificar as configurações:
+# vi /etc/fail2ban/jail.conf
+
+
+3. Adicionar o IP na lista 'ignore'
+
+4. Dê restart no serviço
+
+	para Cent0S 6:
+	# service fail2ban restart
+
+	para CentOS 7:
+	# systemctl restart fail2ban
+
+
+===================================================================
+LIBERAR IP
+
+- tem que atuar rapidamente
+
+via putty
+entrar no login do mx correspondente ao cliente
+
+# iptables -L 				[ limpar regras]
+# iptables -F				[serve para limpar o que tem no iptables -L (regras)]
+# iptables -L
+# vi /etc/fail2ban/jail.conf		[adicionar IP]
+
+apertar 'i' para insert
+colar o IP
+apertar Esc
+teclar :wq
+
+service fail2ban restart		[reiniciar serviço]
+
+
+após realizar a troca de IP, quando o caso é de acesso administrativo, é necessário realizar a liberação do IP no DC(Sophos)

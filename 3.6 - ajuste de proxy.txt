@@ -1,0 +1,37 @@
+zmprov ms `hostname` zimbraImapBindPort 0
+zmprov ms `hostname` zimbraImapProxyBindPort 0
+zmprov ms `hostname` zimbraImapSSLBindPort 0
+zmprov ms `hostname` zimbraImapSSLProxyBindPort 0
+zmprov ms `hostname` zimbraMailPort 0
+zmprov ms `hostname` zimbraMailProxyPort 0
+zmprov ms `hostname` zimbraMailSSLPort 0
+zmprov ms `hostname` zimbraMailSSLProxyPort 0
+zmprov ms `hostname` zimbraPop3BindPort 0
+zmprov ms `hostname` zimbraPop3ProxyBindPort 0
+zmprov ms `hostname` zimbraPop3SSLBindPort 0
+zmprov ms `hostname` zimbraPop3SSLProxyBindPort 0
+
+
+
+zmprov ms `hostname` zimbraImapBindPort 143
+zmprov ms `hostname` zimbraImapProxyBindPort 7143
+zmprov ms `hostname` zimbraImapSSLBindPort 993
+zmprov ms `hostname` zimbraImapSSLProxyBindPort 7993
+zmprov ms `hostname` zimbraPop3BindPort 110
+zmprov ms `hostname` zimbraPop3ProxyBindPort 7110
+zmprov ms `hostname` zimbraPop3SSLBindPort 995
+zmprov ms `hostname` zimbraPop3SSLProxyBindPort 7995
+
+
+zmprov ms `hostname` zimbraMailPort 0
+zmprov ms `hostname` zimbraMailProxyPort 0
+zmprov ms `hostname` zimbraMailPort 80
+zmprov ms `hostname` zimbraMailProxyPort 8080
+
+
+
+[zimbra@dc02bsmx12 ~]$ zmprov ms `zmhostname` zimbraMailSSLProxyPort 0
+[zimbra@dc02bsmx12 ~]$ zmprov ms `zmhostname` zimbraMailSSLPort 0
+[zimbra@dc02bsmx12 ~]$ zmprov ms `zmhostname` zimbraMailSSLPort 8443
+[zimbra@dc02bsmx12 ~]$ zmprov ms `zmhostname` zimbraMailSSLProxyPort 433
+[zimbra@dc02bsmx12 ~]$ zmprov ms `zmhostname` zimbraMailSSLProxyPort 443

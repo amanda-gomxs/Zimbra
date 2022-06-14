@@ -1,0 +1,6 @@
+Executar reindex de caixa via comando
+
+zmprov rim conta@dominio.com.br start
+
+
+

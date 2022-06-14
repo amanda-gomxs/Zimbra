@@ -1,0 +1,44 @@
+cd /opt
+ls 
+ls -lh
+
+======================================
+
+free -m
+
+df -h
+
+cd opt
+
+ls
+
+mkdir swap_area
+
+pwd - entrar no diretório.
+
+dd -f=dev/zero of=opt/swap_area/swapfile01 bs=1024 count=5120000
+
+ls -lh
+
+swapon /opt/swap_area/swapfile01
+
+cp /etc/fstab /etc/fstab.old 		|fstab - responsável por subir as partições
+
+
+- vamos inserir no fstab [última linha]:
+
+	/opt/swap_area/swapfile01 none swap ssw 0 0
+
+swapoff /opt/swap_area/swapfile01
+
+free -m
+
+swapon -a 	|carrega toda a alteração que está no arquivo 'fstab'
+
+free -m
+
+swap -s
+
+
+
+

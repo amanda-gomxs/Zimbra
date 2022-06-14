@@ -1,0 +1,8 @@
+DMARC
+dmarc.org
+autenticador de mensagem basedado em dominio
+dmarcguide.globalcyberalliance.org - criar
+
+
+DKIM
+gerado no zimbra e configurado no DNS

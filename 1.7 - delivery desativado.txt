@@ -1,0 +1,23 @@
+Erro:
+
+lmtp - accepted and discarded message from=[email],to=[email]: local delivery is disabled
+
+Provável causa: 
+delivery desativo
+
+rodar o comando: 
+#  zmprov ga [email] |grep LocalDelivery
+zimbraPrefMailLocalDeliveryDisabled: TRUE
+
+para habilitar: 
+# zmprov ma [conta] zimbraPrefMailLocalDeliveryDisabled FALSE
+
+
+para validação:
+# zmprov ga [email] |grep LocalDelivery
+zimbraPrefMailLocalDeliveryDisabled: FALSE
+
+- envie um e-mail para a conta em questão e veja os logs em tempo real:
+# tail -f /opt/zimbra/log/mailbox.log |grep [email]
+
+

@@ -1,0 +1,18 @@
+editar o up e o down
+
+cbq stats
+cbq stop
+cbq compile
+cbq start
+
+olhar o consumo de link via iptraf
+================================
+dropar as portas com o iptables 
+
+depois iptables -F
+
+
+/etc/sysconfig/cbq/
+
+
+

@@ -1,0 +1,46 @@
+CRIAÇÃO DE DOMÍNIO
+
+# novo domínio:
+
+- INFORMAÇÕES GERAIS: nome do domínio
+- CONFIGURAÇÕES DA LISTA GERAL:
+- SSO:
+- MODO DE AUTENTICAÇÃO:
+- HOST VIRTUAL
+- AVANÇADO:
+- RECURSO:
+- CONFIGURAÇÃO DO DOMÍNIO:
+	
+
+# classe de serviço
+	novo: nome
+	idioma:
+	cota: política avançada
+	 nunca deixar em 0
+	Fuso horário
+	Classe de serviço: o domínio
+=================================================
+# baruwa
+
+serviço: 
+
+servidor de entrega: 10.0.0...
+porta 25
+
+=================================================
+
+# Gerar Dkim
+
+no servidor
+
+su - zimbra
+
+/opt/zimbra/libexec/zmdkimkeyutil -a -d porschecenterfortaleza.com.br -b 2048
+
+ao gerar a chave dkim, tirar o 'IN' e os espaços.
+
+# 
+DNS Bind SP2
+editar
+
+/etc/named.dominios.conf

@@ -1,0 +1,1 @@
+for i in $(cat /tmp/lista_bloqueado1.txt); do echo -e "/n$i:"; zmprov ma "$i' zimbraAccountStatus closed; echo e "ok.";done

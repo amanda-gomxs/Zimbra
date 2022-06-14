@@ -1,0 +1,1 @@
+zmgsautil createAccount -a galsync@newland.com.br -n InternalGAL --domain newland.com.br -s dc01bsmx05.optimiz.com.br -t zimbra -f _InternalGAL

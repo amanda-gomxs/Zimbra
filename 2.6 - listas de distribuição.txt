@@ -1,0 +1,34 @@
+CRIAR LISTAS
+
+
+zmprov cdl nome-da-lista
+
+
+adicionar membro à Lista:
+zmprov adlm lista-matriz@dexter.com.br linus@dexter.com.br
+
+
+cat /tmp/listas |awk '{print "zmprov adlm lista-matriz@dexter.com.br  " $1}'
+
+tr "\n" " " <lista> lista1
+
+zmprov adlm GRUPO $(cat ARQUIVO)
+
+
+
+=================================
+zmprov cdl nome-da-lista
+
+tr "\n" " " <lista> lista1
+
+zmprov adlm GRUPO $(cat lista1)
+
+
+
+
+
+
+==============================
+pamella@haitoyota.com.br
+
+

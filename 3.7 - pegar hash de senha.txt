@@ -1,0 +1,2 @@
+zmprov -l ga [conta] userPassword
+

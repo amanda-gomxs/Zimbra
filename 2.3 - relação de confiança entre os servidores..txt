@@ -1,0 +1,19 @@
+CONSTRUINDO UMA RELAÇÃO DE CONFIANÇA SSH ENTRE OS SERVIDORES
+
+
+
+Olá, já havia feito isto algumas vezes e então resolvi postar essa dica para que alguém que esteja precisando dessa relação de confiança ter mais este conhecimento.
+
+Primeiramente iremos criar a chave rsa:
+
+ ssh-keygen -t rsa -f ~/.ssh/id_rsa
+
+Pronto, com a chave criada iremos enviá-la para o servidor que estabeleceremos a confiança:
+
+ cat ~/.ssh/id_rsa.pub | ssh usuário@192.168.0.5 'cat - >> ~/.ssh/authorized_keys'
+
+No comando acima substitua o IP 192.168.0.5 pelo IP que irá se conectar.
+
+Prontinho, feita a relação de confiança entre os servidores.
+
+Obs.: Essa relação de confiança é feita do servidor A para conecta-se ao servidor B sem precisar digitar senha, somente com troca de chaves. Porém fazendo ao inverso, conectando do servidor B ao servidor A irá pedir senha normal, pois a relação de confiança foi feita do A para o B.

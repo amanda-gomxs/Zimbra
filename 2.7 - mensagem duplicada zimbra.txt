@@ -1,0 +1,10 @@
+# su - zimbra
+
+# zmprov desc -a zimbraMessageIdDedupeCacheSize
+
+# zmprov gcf zimbraMessageIdDedupeCacheSize
+zimbraMessageIdDedupeCacheSize: 3000 
+
+# zmprov mcf zimbraMessageIdDedupeCacheSize 0
+
+# zmmailboxdctl restart

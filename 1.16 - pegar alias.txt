@@ -1,0 +1,4 @@
+ for i in $(zmprov -l gaa); do echo -e "\n$i:"; zmprov ga $i | grep zimbraPrefMailForwardingAddress; done > /tmp/atri.tx
+ 
+ 
+ for i in $(zmprov -l gaa [dominio]); do echo -e "$i:"; zmprov ga $i | grep MailAlias; done

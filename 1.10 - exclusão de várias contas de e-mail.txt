@@ -1,0 +1,37 @@
+EXCLUSÃO DE VÁRIAS CONTAS DE E-MAIL
+
+
+- Acessar Clientes MX
+	logar no MX correspondente
+
+verificar se há contas com sistema fechado|bloqueado e comparar com as contas em questão.
+
+- via Putty
+
+# hostname 	[para conferir]
+
+# su - zimbra
+
+# zmaccts | grep [domínio.com.br] | grep active/locked/closed
+
+# cd /tmp      [para checar se há algum aarquivo no TMP]
+	# ls 
+
+# zmaccts |grep [domínio] | grep active > e-mails_fechados.txt  	[não foi colocado diretório tmp pois já está logado no diretório]
+
+# cat /tmp/e-mais_fechados.txt | awk '{print 41'} > e-mails_fechados1.txt
+
+# vi e-mails_fechados1.txt
+	colar a lista aqui
+
+# cat e-mails_fechados1.txt
+
+# for i in $(cat /tmp/emails_fechados1.txt); do echo -e "/n$i:"; zmprov ma "$i' zimbraAccountStatus closed; echo e "ok.";done
+
+=====================================================
+
+# for i in $(cat /tmp/emails_fechados1.txt); do echo -e "/n$i:"; zmprov qa "$i' zimbraAccountStatus closed; echo e "ok.";done 	[correto]
+
+:::::::::::::::::::::::::::::::::::::::::
+
+# zmaccts

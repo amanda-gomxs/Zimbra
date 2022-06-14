@@ -1,0 +1,95 @@
+Como instalar o Zimbra no CentOS 7
+
+www(host).uol.com.br(domain) - FQDN
+server1.dominio.com.br
+
+
+Active Directory:
+
+nome.alguma coisa
+- não pode ser apenar um domínio.
+
+
+
+
+DESABILITAR:
+
+|SELINUX
+# sestatus
+# vi /etc/selinus/config
+
+- reiniciar a máquina
+
+
+|POSTFIX:
+
+# systemctl stop postfix
+# systemctl disable postfix
+# systemctl status postfix
+
+
+|FIREWALLD
+
+# systemctl status firewalld
+# systemctl stop firewalld
+# systemctl disable firewalld
+# systemctl status firewalld
+
+
+
+
+
+
+mudar o hostname
+	# hostnamectl set-hostname [nome novo do host]
+	# vi etc/etc/hostname
+
+cat etc/hosts
+# vi etc/hosts - DNS que será utilizado
+
+# wget [link da versão mais recente do Zimbra]
+
+# tar -xvzf zcs-8.8.15_GA_3869.RHEL7_64.20190918004220.tgz
+
+# ls
+
+# cd zcs-8.8.15_GA_3869.RHEL7_64.20190
+
+# ls
+
+- se der erro no ERROR: System perl at /usr/bin/perl must be present before installation.
+
+rodar comando:
+# rpm -q perl-DBI {para ver se há o Perl e quando versão é}
+# yum install perl-DBI
+
+# ./install.sh
+
+dnscache -não
+beta -não
+drive - não
+chat - não
+
+=========================================
+
+yum install bind
+
+para zerar o arquivo
+>named.conf
+
+depois copiar as informações e colar nele
+-----------------------------------------
+
+criar e copiar as pastas presentes no named
+
+
+
+zmprov ms `zmhostname` -zimbraServiceEnabled amavis
+zmamavisdctl status
+zmmilterctl start
+zmprov -l ms `hostname` -zimbraServiceEnabled antispam
+zmprov -l ms `hostname` -zimbraServiceEnabled antivirus
+
+
+
+

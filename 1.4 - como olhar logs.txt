@@ -1,0 +1,53 @@
+- analisar o log do opt/zimbra/log.mailbox
+
+tail -f /opt/zimbra/log/mailbox.log 
+
+cat /opt/zimbra/log/mailbox.log |grep failed
+
+cat /opt/zimbra/log/mailbox.log |grep -i failed |more
+
+cat /opt/zimbra/log/mailbox.log |grep [endereço] |more
+993
+
+cat /var /log/maillog |grep
+
+
+olhar log 
+cat /var/log/maillog |grep supervisor.newfl@newhb.com.br
+
+=========================================
+ID
+copiar o ID até o @
+cat /var/log/zimbra.log |grep CP2P152MB091338357FD604E559F412F8DE639 
+
+su – zimbra
+postqueue -p |more
+
+sudo /opt/zimbra/common/sbin/postsuper -h ALL
+
+cd /var/log
+grep client= zimbra.log|cut -d: -f5|sort| uniq -c|sort -n|grep sasl_method=LOGIN
+grep client= zimbra.log|cut -d: -f5|sort| uniq -c|sort -n|grep sasl_method=PLAIN
+
+===========================
+ANTISPAM
+
+cat /var/log/maillog |grep
+
+
+
+=================================================
+
+Policyd
+
+
+Log Policyd 
+# /opt/zimbra/log/cbpolicyd.log
+
+filtrar cota 100%
+# cat cbpolicyd.log |grep quota=500
+
+quota=limite
+
+
+

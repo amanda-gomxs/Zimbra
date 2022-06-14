@@ -1,0 +1,27 @@
+Treinamento Josiel Reis
+
+========================== DNS ==============================
+# consulta do server (consulta local)
+dig ns domínio.com.br 
+
+# consulta externa do server (consulta externa - google)
+dig ns domínio @8.8.8.8 
+
+
+# SOA - start of autoritation (inicio de autorização)
+# quem é que manda.
+# primário
+
+dig soa domínio.com.br
+
+# NS - nameserver (Servidores de nome)
+dig ns domínio.com.br
+
+
+# MX - message exchange (Servidor de E-mail)
+dig mx domínio.com.br
+
+
+# SPF - TXT 
+#dmarcanalyzer.com/spf
+dig txt domínio.com.br

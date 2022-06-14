@@ -1,0 +1,113 @@
+confirme onde você está:
+# ifconfig
+
+usuário zimbra:
+# su - zimbra
+
+# zmcontrol  status --------------------- não deve estar rodando.
+
+# zmcontrol start ----------------------- em caso de erro no 'ldap' é necessário alterar o DNS.
+
+para editar arquivos é necessário estar no usuário root
+
+ctrl + D para sair do usuário zimbra
+
+# cat /etc/hosts
+
+caso esteja errado:
+# vi /etc/hosts
+
+olhar:
+# cat /etc/resolv.conf
+
+caso esteja errado:
+# vi /etc/resolv.conf
+
+alterar o IP de acordo com o da VM
+
+- caso dê erro e não dê para alterar o vi:
+
+chattr -i /etc/resolv.conf - para liberar
+chattr +i - para bloquear
+
+=====================
+usuário zimbra: 
+
+# zmcontrol start
+
+=====================
+Backup 
+
+com o usuário zimbra:
+
+# zmmailbox -z -m [conta]  gru "//?fmt=tgz" > /tmp/arquivo.tgz
+
+ls -lh e caminho da pasta.
+
+=====================
+
+# ll /tmp/arquivo.tgz ----- não necessário.
+ 
+# cd / tmp
+
+# scp arquivo.tgz root@[de produção/destino:caminho(pasta)]
+
+ctrl d
+
+
+=====================
+
+
+# ifconfig
+
+# su - zimbra
+
+entrar no diretório tmp
+
+# ls -lh
+
+chown zimbra.zimbra arquivo.tgz
+
+para conferir:
+
+# ls - lh 
+
+# su - zimbra
+
+Restore
+
+# zmmailbox -z -m conta postRestURL "//?fmt=tgz&resolve=skip" /tmp/arquivo.tgz
+
+
+======================================
+INCREMENTAIS
+
+# cd /backup
+
+# cd zmmailbox
+
+# ls -lh
+
+# zmmailbox -z -m conta  postRestURL "//?fmt=tgz&resolve=skip" /backup/zmmailbox/inc-nameserver-110121/conta.tgz  [alterar data]
+
+quando dá não dá retorno é porque não havia nada a ser restaurado.
+
+ERROR: service.FAILURE (system failure: POST failed, status=500 500)
+- não há nada para restaurar
+
+
+==========================================================
+
+CASO HAJA NECESSIDADE DE PEGAR O LOG PARA VER SE HOUVE REMOÇÃO DE CONTA
+
+no usuário root:
+ 
+# cd /opt/zimbra/log
+
+# mailbox - delete, protocolos.
+
+# cat mailbox.log | grep -i conta | grep deleting
+
+# zgrep -i [conta] mailbox.log.2021-01-26.gz | grep deleting
+
+

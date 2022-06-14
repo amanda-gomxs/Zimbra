@@ -1,0 +1,25 @@
+- acessar o webmail
+
+- acessar o exchange
+
+- buscar o usuário, se não houver, criar um.
+
+- ticar exchange online 1 (provavelmente sempre vai ser essa)
+
+- 'terminar de adicionar'
+
+- verificar ALIAS | CLICANDO NA CONTA. 
+		ir na aba 'e-mail'
+		
+- mostrar tudo |exchange
+	destinatários |caixas de e-mail - dar dois cliques na conta em questão. 
+		endereços de e-mail
+			onmicrosoft (smtp)
+
+- ir para o ZIMBRA
+	clicar na conta
+	encaminhamento
+		ticar 'permitir que o usuário especifique um endereço de encaminhamento'
+		endereços de encaminhamento: colar o onmicrosoft.
+		
+- alterar

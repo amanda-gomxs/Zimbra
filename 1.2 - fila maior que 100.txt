@@ -1,0 +1,45 @@
+	FILA DE E-MAIL MAIOR QUE 100
+	
+# su - zimbra 
+
+# postqueue -p
+
+Filtrar contas com cota estourando
+cat /opt/zimbra/log/cbpolicyd.log |grep quota=30
+
+Filtros em log já compactado 
+zgrep -i  quota=30  cbpolicyd.log-20210211.gz
+
+
+policyd sempre éo IP do servidor na porta 7780
+	ir no padrão e ver o limite de envio de contas
+
+
+========================
+Joga para hold
+sudo /opt/zimbra/common/sbin/postsuper -h ALL
+
+Retorna para a fila ativa
+sudo /opt/zimbra/common/sbin/postsuper -H ALL
+
+Limpa a fila de e-mails
+sudo /opt/zimbra/common/sbin/postsuper -d ALL hold
+
+Força a entrega imediata dos e-mails na fila
+postqueue -f
+
+
+=========================
+cd /var/log
+grep client= zimbra.log|cut -d: -f5|sort| uniq -c|sort -n|grep sasl_method=LOGIN
+grep client= zimbra.log|cut -d: -f5|sort| uniq -c|sort -n|grep sasl_method=PLAIN
+
+
+postqueue -p |less
+
+postqueue -p |grep -i Mailer |cut -c1-11 >/tmp/fila
+
+for i in `cat /tmp/fila` ; do sudo /opt/zimbra/common/sbin/postsuper -d $i; done
+
+
+

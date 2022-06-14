@@ -1,0 +1,34 @@
+|Baruwa
+https://docs.baruwa.com/guide/admin/index.html
+
+
+|Zimbra
+https://wiki.zimbra.com
+
+
+|DNS
+
+1. IP reverso
+https://ipok.com.br
+
+2. Propagação de DNS
+https://dnschecker.org
+
+3. Reputação de IP
+https://talosintelligence.com/reputation_center/
+
+4. Blacklists e consultas de DNS 
+https://mxtoolbox.com
+
+
+|Monitoramento de blacklists
+
+https://hetrixtools.com/dashboard/
+
+Login
+User: btzsuporte@gmail.com
+PWD: tx.1p3@Z1hs'cvI
+
+|Google
+User: btzsuporte@gmail.com
+PWD: VWmw1o>0q[9$

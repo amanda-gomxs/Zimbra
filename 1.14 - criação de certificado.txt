@@ -1,0 +1,27 @@
+su - zimbra
+
+Gerar certificado Zimbra para acesso Https
+
+/opt/zimbra/bin/zmcertmgr createca -new
+/opt/zimbra/bin/zmcertmgr deployca
+/opt/zimbra/bin/zmcertmgr createcrt -new -days 7300
+/opt/zimbra/bin/zmcertmgr createcrt -new -subjectAltNames "*.maindominio.com.br"
+/opt/zimbra/bin/zmcertmgr createcrt -new -subject "/C=SP/ST=CA/O=OPTIMIZ/CN=*.optimiz.com.br"
+/opt/zimbra/bin/zmcertmgr createcrt -new -subjectAltNames "*.dominio.com.br, *.dominio.com.br, *.dominio.com.br, *.dominio.com.br"
+/opt/zimbra/bin/zmcertmgr deploycrt self -allserver
+/opt/zimbra/bin/zmcertmgr viewdeployedcrt
+
+- dar o restart
+gerar arquivo CA
+
+cd /root
+openssl x509 -in /opt/zimbra/ssl/zimbra/ca/ca.pem -outform DER -out ca.der 
+
+su - zimbra
+
+
+_____________________________________
+
+somente alterar a linha 
+-new -subjectAltNames 
+

@@ -1,0 +1,7 @@
+Auditoria de remoção de e-mail.
+
+grep -i [conta] mailbox.log | grep -i deletin
+
+Log compactado
+
+zgrep -i [conta] mailbox.log.2021-01-25.gz | grep -i deletin [ou trash]

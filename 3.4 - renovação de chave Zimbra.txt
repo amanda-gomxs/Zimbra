@@ -1,0 +1,10 @@
+renovação da chave
+
+
+1. em usuário zimbra
+
+zmsshkeygen
+ 
+zmupdateauthkeys
+
+zmcontrol stop; zmcontrol stop; zmcontrol start

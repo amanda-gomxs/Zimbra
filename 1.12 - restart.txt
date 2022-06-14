@@ -1,0 +1,11 @@
+ver para dar restar no serviço.
+# init.d 
+
+- restart:
+su - zimbra
+zmcontrol restart 
+
+- parar e subir novamente:
+su - zimbra
+zmcontrol stop, zmcontrol stop, zmcontrol start
+

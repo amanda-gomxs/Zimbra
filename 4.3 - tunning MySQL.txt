@@ -1,0 +1,37 @@
+Tunning SQL
+
+# su - zimbra
+
+cd /tmp
+
+wget https://raw.githubusercontent.com/major/MySQLTuner-perl/master/mysqltuner.pl
+
+chmod u+x mysqltuner.pl
+
+./mysqltuner.pl
+
+
+============== RECOMENDADO ==============
+
+criar um backup do arquivo:
+/opt/zimbra/conf/my.cnf
+
+mysql.server restart
+
+
+=========================================
+[zimbra@dc01bsmx10 tmp]$ zmlocalconfig -s | grep mysql | grep password
+
+antispam_mysql_password =
+antispam_mysql_root_password =
+mysql_root_password = 5nANg4ybXup7z12r6bIoGTNmEt
+zimbra_mysql_password = .cHmx9hfHJvYOKSq9GLeYOut3QGX
+
+
+mysqladmin
+
+
+Variables to adjust:
+    table_open_cache (> 1024)
+    performance_schema = ON enable PFS
+    innodb_log_file_size should be (=1G) if possible, so InnoDB total log files size equals to 25% of buffer pool size.
