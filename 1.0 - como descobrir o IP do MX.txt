@@ -1,0 +1,5 @@
+como descobrir o IP do servidor de e-mail
+
+no CMD:
+
+ping dc01bsmx10.optimiz.com.br

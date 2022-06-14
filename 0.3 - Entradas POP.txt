@@ -1,0 +1,13 @@
+===============================================
+
+25 (SMTP) Entre servidores
+587 (SMTP Envio) Foco no client - No SSL
+465 (SMTP Envio) Foco no client - SSL
+
+110 (POP Recebimento) Foco no client - No SSL
+995 (POP Recebimento) Foco no client - SSL
+
+143 (IMAP recebimento) Foco no client - No SSL
+993 (IMAP recebimento) Foco no client - SSL
+
+===============================================

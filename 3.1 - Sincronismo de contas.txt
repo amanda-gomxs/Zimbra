@@ -1,0 +1,58 @@
+servidor origem; conta; senha; servidor destino; conta destino; senha destino.
+[IP];[CONTA];[SENHA];[IP-DEST];[CONTA-DEST];[SENHA-DEST];
+
+sync faz referencia ao txt com as informações.
+
+
+1. cp de um sync existente
+
+2. criar txt conforme padrão acima
+
+3. associar ao script 
+
+4. para testar conexão:
+	imapsync --host1 [ip]--user1 [conta] --password1 '[senha]' --host2 [ip-dest]--user2 [conta-dest]--password2 '[senha-dest]'
+
+5. editar o crontab
+	# crontab -e
+	
+	. dar restart no serviço
+	# systemctl restart crond
+	
+________________________________________
+
+6. rodar o script
+________________________________________
+
+7. para verificar se está rodando:
+	# ps -ef |grep imapsync 
+
+8. para verificar se já acabou:
+	# cd /tmp
+	# tail -f nfe1
+	
+9. para verificar se houve erros:
+	no diretório tmp	
+	# cat nfe1 |grep 'failure: Error login on'
+	
+10. Caso haja erro: 
+
+copiar a sintase que aparece na linha do host2, ex:
+
+--noerrorsdump
+
+linha do host2: 
+imapsync --host1 "$h1" --user1 "$u1" --password1 "$p1" --authmech1 PLAIN --addheader \
+         --host2 "$h2" --user2 "$u2" --password2 "$p2" --authmech2 PLAIN --skipsize --allowsizemismatch --noerrorsdump --idatefromheader --addheader --exclude '^Emailed Contacts' \
+
+- saia salvando
+
+11. Edite o script para um novo horário e execute novamente
+
+________________________________________
+
+Comandos interessantes:
+
+- para ver o crontab
+# crontab -l
+

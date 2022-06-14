@@ -1,0 +1,12 @@
+LENTIDÃO DE E-MAIL
+
+
+
+lentidão nos e-mails provavelmente é o Java, entretanto, nesses casos não tem muito o que fazer, terá que reiniciar o serviço:
+
+# zmcontrol stop; zmcontrol start
+
+interessante fazer: 
+
+# zmcontrol stop; zmcontrol start; zmcontrol status.
+assim é checado se o serviço subiu.
