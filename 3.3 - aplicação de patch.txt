@@ -1,0 +1,16 @@
+ COMO APLICAR PATCH
+ 
+ # yum clean metadata      ---- limpa
+	# su - zimbra
+	# zmcontrol -v
+ 
+ # yum check-update
+ 
+ # yum install zimbra-patch
+ 
+ # yum install zimbra-chat
+ 
+
+para executar tudo de uma vez:
+
+# yum clean metadata; yum check-update; yum zimbra-patch
