@@ -1,0 +1,84 @@
+﻿zmprov gs `zmhostname` | grep zimbraReverseProxySSLToUpstreamEnabled
+zmprov ms `zmhostname` zimbraReverseProxySSLToUpstreamEnabled FALSE
+zmprov gs `zmhostname` | grep zimbraReverseProxyMailMode
+zmprov gs `zmhostname` | grep zimbraMailMode
+zmtlsctl both
+zmprov ms `zmhostname` zimbraMailMode both
+zmprov gs `zmhostname` | grep zimbraMailMode
+zmcontrol restart
+zmprov gs `zmhostname` | grep zimbraReverseProxySSLToUpstreamEnabled
+zmprov gs `zmhostname` | grep zimbraReverseProxyMailMod
+zmprov gs `zmhostname` | grep zimbraMailMode
+
+
+
+Se alguém estiver em um cenário com o zimbra 8.6 e precisar atualizar para a versão 8.7, é necessário instalar o proxy/memcached. Após essa atualização é necessário realizar algumas configurações para o zimbra passar a ouvir requisições na porta 443/80/110/143/993/995 do proxy e encaminhar essas requisições para o mailbox.
+
+Além de alterar as portas via zmprov, é necessário rodar o comando zmproxyconfig conforme mostra na wiki.
+
+https://wiki.zimbra.com/wiki/Enabling_Zimbra_Proxy_and_memcached
+ 
+ 
+/opt/zimbra/libexec/zmproxyconfig -e -m -o -i 143:7143:993:7993 -p 110:7110:995:7995 -H `zmhostname`
+ /opt/zimbra/libexec/zmproxyconfig -e -w -o -a 80:8080:443:8443 -x both -H `zmhostname`
+ zmlocalconfig zimbraReverseProxySSLToUpstreamEnabled FALSE (se tiver true o comando acima falha) ou /opt/zimbra/libexec/zmproxyconfig -e -m -w -H `zmhostname` -u
+
+ $ zmtlsctl both
+
+4. $ zmprov ms `zmhostname` zimbraReverseProxyMailMode both
+
+5. $ zmprov ms `zmhostname` zimbraMailMode both
+
+6. $ zmcontrol restart
+
+  
+zmprov mcf zimbraMailPort 80
+zmprov mcf zimbraMailProxyPort 8080
+zmprov mcf zimbraMailSSLPort 443
+zmprov mcf zimbraMailSSLProxyPort 8443
+
+zmprov mcf zimbraImapBindPort 143
+zmprov mcf zimbraImapProxyBindPort 7143
+zmprov mcf zimbraImapSSLBindPort 993
+zmprov mcf zimbraImapSSLProxyBindPort 7993
+
+zmprov mcf zimbraPop3BindPort 110
+zmprov mcf zimbraPop3ProxyBindPort 7110
+zmprov mcf zimbraPop3SSLBindPort 995
+zmprov mcf zimbraPop3SSLProxyBindPort 7995
+
+zmcontrol restart
+
+
+
+https://forums.zimbra.org/viewtopic.php?t=56663
+
+
+netstat -nlp |grep 80 
+
+nginx porta 80
+
+
+
+ zmprov gacf zimbraMailPort
+zimbraMailPort: 80
+
+zmprov gacf zimbraMailProxyPort
+zimbraMailProxyPort: 0
+ zmprov gacf zimbraMailSSLPort
+zimbraMailSSLPort: 0
+zmprov gacf zimbraMailSSLProxyPort
+zimbraMailSSLProxyPort: 0
+
+
+
+agora usa proxy, e ele loga o IP do zimbra e não o de origem,
+
+-> Logging the Originating IP
+zmlocalconfig zimbra_http_originating_ip_header
+zmprov mcf +zimbraMailTrustedIP 127.0.0.1 +zimbraMailTrustedIP <ip-do-zimbra>
+zmmailboxdctl restart
+
+Essa é uma alteração que precisa ser feita.
+
+https://wiki.zimbra.com/wiki/Log_Files#Logging_the_Originating_IP
