@@ -1,0 +1,58 @@
+#!/bin/bash
+debug=0
+percMinAviso=80
+percMaxAviso=90
+sudo -u zimbra /opt/zimbra/bin/zmaccts | grep "@" | awk '{print $1}' | sort | while read user
+do
+  #############################################################
+  if [ $debug = 1 ]
+  then
+    echo "Processando quota do usuario $user"
+  fi
+  quotatotal=`zmprov ga $user zimbraMailQuota | grep "Quota: " | awk '{print $2}'`
+  quotaAtual=`zmmailbox -z -m $user gms`
+  unidMed=`echo $quotaAtual | cut -d' ' -f2`
+  quotaAtual=`echo $quotaAtual | cut -d' ' -f1`
+  #############################################################
+  # pegar apenas a parte inteira por causa do comando let (mas serve como conta aproximada)
+  #############################################################
+  quotaAtual=`echo $quotaAtual | cut -d',' -f1`
+  quotaAtual=`echo $quotaAtual | cut -d'.' -f1`
+  #############################################################
+  # converter para bytes
+  #############################################################
+  if [ $unidMed = KB ]
+  then
+    let quotaAtual=$quotaAtual*1024
+  else
+    if [ $unidMed = MB ]
+    then
+      let quotaAtual=$quotaAtual*1024*1024
+    else
+      if [ $unidMed = GB ]
+      then
+        let quotaAtual=$quotaAtual*1024*1024*1024
+      fi
+    fi
+  fi
+  #############################################################
+  let percUso=$quotaAtual*100/$quotatotal
+  #############################################################
+  if [ $debug = 1 ]
+  then
+    echo "===> Total = $quotatotal, Atual = $quotaAtual, %Uso Aproximado = $percUso%"
+  fi
+  #############################################################
+  if [ $percUso -gt $percMaxAviso ]
+  then
+    echo "$user => %Uso Aproximado = $percUso% => ALERTA: QUASE ESTOURANDO!!!"
+  else
+    if [ $percUso -gt $percMinAviso ]
+    then
+      echo "$user => %Uso Aproximado = $percUso% => ALERTA: ACIMA DO LIMITE MINIMO DE $percMinAviso!!!"
+    else
+      echo "$user => %Uso Aproximado = $percUso%"
+    fi
+  fi
+  #############################################################
+done
